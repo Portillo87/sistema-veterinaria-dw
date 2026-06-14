@@ -4,7 +4,7 @@ import axios from 'axios'
 // Centralizar la baseURL aquí evita duplicarla en cada servicio:
 // si el puerto del backend cambia, solo se modifica este archivo.
 const api = axios.create({
-  baseURL: 'https://sistema-veterinaria-dw.onrender.com/api'
+  baseURL: 'http://localhost:3000/api'
 })
 
 export default api
