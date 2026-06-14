@@ -1,104 +1,112 @@
 # Sistema de Gestión Veterinaria DW
 
-Sistema web completo para la administración de clínicas veterinarias, desarrollado como proyecto académico para la asignatura **Desarrollo Web (DW)** — Ingeniería en Desarrollo de Software.
+Proyecto desarrollado para la asignatura **Desarrollo Web (DW)** de la carrera **Ingeniería en Desarrollo de Software**, cuyo objetivo es aplicar los conocimientos adquiridos en el desarrollo de aplicaciones web mediante la integración de tecnologías de frontend, backend y bases de datos.
 
 ---
 
 ## Descripción
 
-Aplicación full-stack que permite gestionar de forma integral los procesos de una clínica veterinaria: registro de propietarios, mascotas, expedientes clínicos, historial médico y control de consultas. Cuenta con una interfaz moderna y responsiva que facilita la operación diaria del personal clínico y administrativo.
+El Sistema de Gestión Veterinaria DW es una aplicación web orientada a la administración de información dentro de una clínica veterinaria. El sistema permite registrar propietarios y mascotas, gestionar historiales clínicos y mantener organizada la información relacionada con la atención veterinaria.
+
+Para el desarrollo del proyecto se implementó una arquitectura cliente-servidor utilizando Vue.js para la interfaz de usuario, Node.js y Express para el desarrollo de la API REST, y MongoDB Atlas como sistema de almacenamiento de datos.
+
+Este proyecto permitió poner en práctica conocimientos relacionados con el desarrollo web moderno, la construcción de APIs REST, el manejo de bases de datos NoSQL y la integración de servicios en aplicaciones web.
 
 ---
 
-## Características Principales
+## Objetivo General
 
-- Registro e inicio de sesión de usuarios
-- Gestión completa de propietarios (CRUD)
-- Gestión completa de mascotas (CRUD)
-- Expedientes clínicos por mascota
-- Historial médico detallado
-- Control de vacunas
-- Gestión de citas
-- Dashboard administrativo con estadísticas
-- Reportes del sistema
-- Control de roles de usuario
-- API REST documentada
+Desarrollar una aplicación web que permita gestionar de manera eficiente la información de una clínica veterinaria, facilitando el control de propietarios, mascotas e historiales clínicos.
+
+---
+
+## Funcionalidades Principales
+
+* Registro y administración de propietarios.
+* Registro y gestión de mascotas.
+* Consulta y actualización de historiales clínicos.
+* Gestión de expedientes médicos veterinarios.
+* Control de información de las mascotas registradas.
+* Comunicación mediante una API REST.
+* Almacenamiento de información en MongoDB Atlas.
+* Interfaz web amigable y de fácil uso.
+* Gestión de datos mediante operaciones CRUD.
 
 ---
 
 ## Tecnologías Utilizadas
 
 ### Frontend
-| Tecnología | Versión | Propósito |
-|---|---|---|
-| Vue.js 3 | ^3.5 | Framework principal (Composition API) |
-| Vue Router | ^4.5 | Navegación SPA |
-| Axios | ^1.7 | Cliente HTTP |
-| Bootstrap 5 | ^5.3 | Componentes UI y estilos |
-| Bootstrap Icons | ^1.11 | Iconografía |
-| Tailwind CSS | ^4.3 | Utilidades CSS |
-| Vite | ^8.0 | Bundler y servidor de desarrollo |
+
+* Vue.js 3
+* Vue Router
+* Axios
+* Bootstrap 5
+* Bootstrap Icons
+* Tailwind CSS
+* Vite
 
 ### Backend
-| Tecnología | Versión | Propósito |
-|---|---|---|
-| Node.js | ≥18.x | Entorno de ejecución |
-| Express.js | ^5.2 | Framework HTTP / API REST |
-| Mongoose | ^9.6 | ODM para MongoDB |
-| CORS | ^2.8 | Control de acceso entre orígenes |
-| dotenv | ^17.4 | Gestión de variables de entorno |
+
+* Node.js
+* Express.js
+* Mongoose
+* CORS
+* dotenv
 
 ### Base de Datos
-| Tecnología | Propósito |
-|---|---|
-| MongoDB Atlas | Base de datos NoSQL en la nube |
-| Mongoose | Modelado y validación de esquemas |
+
+* MongoDB Atlas
 
 ---
 
-## Arquitectura del Sistema
+## Arquitectura del Proyecto
 
-```
+```text
 PROYECTO VETERINARIA/
-├── backend/                  # API REST — Node.js + Express
-│   ├── src/
-│   │   ├── app.js            # Configuración de la aplicación Express
-│   │   ├── config/
-│   │   │   └── db.js         # Conexión a MongoDB
-│   │   ├── controllers/      # Lógica de negocio por entidad
-│   │   ├── models/           # Esquemas Mongoose
-│   │   └── routes/           # Definición de rutas REST
-│   ├── server.js             # Punto de entrada del servidor
-│   ├── .env.example          # Plantilla de variables de entorno
-│   └── package.json
 │
-└── frontendDW/               # SPA — Vue 3 + Vite
-    ├── src/
-    │   ├── main.js           # Punto de entrada
-    │   ├── App.vue           # Componente raíz
-    │   ├── router/           # Configuración de rutas Vue
-    │   ├── services/         # Clientes HTTP (Axios)
-    │   ├── views/            # Páginas de la aplicación
-    │   └── assets/           # Estilos y recursos estáticos
-    ├── index.html
-    └── package.json
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   └── routes/
+│   ├── server.js
+│   ├── package.json
+│   └── .env.example
+│
+├── frontendDW/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── router/
+│   │   ├── services/
+│   │   └── views/
+│   ├── package.json
+│   └── vite.config.js
+│
+└── README.md
 ```
 
-**Patrón arquitectónico:** Cliente-Servidor con API REST  
-**Comunicación:** HTTP/JSON entre frontend (puerto 5173) y backend (puerto 3000)  
-**Persistencia:** MongoDB Atlas (cloud) con Mongoose ODM
+### Arquitectura Implementada
+
+* Patrón Cliente - Servidor.
+* Comunicación mediante HTTP y JSON.
+* API REST para la gestión de datos.
+* Base de datos NoSQL utilizando MongoDB Atlas.
 
 ---
 
 ## Requisitos Previos
 
-Asegúrate de tener instalado:
+Antes de ejecutar el proyecto es necesario tener instalado:
 
-- [Node.js](https://nodejs.org/) — versión 18.x o superior
-- [Git](https://git-scm.com/) — para clonar el repositorio
-- Una cuenta en [MongoDB Atlas](https://www.mongodb.com/atlas) — o MongoDB local
+* Node.js versión 18 o superior.
+* Git.
+* MongoDB Atlas o una instancia de MongoDB.
+* Visual Studio Code (opcional).
 
-Verifica las instalaciones:
+Verificar instalaciones:
+
 ```bash
 node --version
 npm --version
@@ -112,8 +120,13 @@ git --version
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/NOMBRE_DEL_REPO.git
-cd NOMBRE_DEL_REPO
+git clone https://github.com/Portillo87/sistema-veterinaria-dw.git
+```
+
+Ingresar al proyecto:
+
+```bash
+cd sistema-veterinaria-dw
 ```
 
 ### 2. Instalar dependencias del Backend
@@ -132,138 +145,183 @@ npm install
 
 ---
 
-## Configuración
+## Configuración de Variables de Entorno
 
-### Backend — Variables de Entorno
+Dentro de la carpeta backend crear un archivo llamado:
 
-Crea el archivo `.env` dentro de la carpeta `backend/` copiando el ejemplo:
-
-```bash
-cd backend
-copy .env.example .env
+```text
+.env
 ```
 
-Edita el archivo `.env` con tus credenciales:
+Ejemplo:
 
 ```env
 PORT=3000
-MONGO_URI=mongodb+srv://USUARIO:CONTRASEÑA@cluster.mongodb.net/veterinaria?retryWrites=true&w=majority
+MONGO_URI=tu_cadena_de_conexion_mongodb
 ```
 
-> **Nota:** El archivo `.env` está incluido en `.gitignore` y nunca debe subirse al repositorio.
+> Importante: El archivo `.env` no debe subirse a GitHub.
 
 ---
 
-## Ejecución
+## Ejecución del Proyecto
 
-### Backend
+### Iniciar Backend
+
+Ubicarse en la carpeta backend:
 
 ```bash
 cd backend
-npm run dev
 ```
 
-El servidor estará disponible en: `http://localhost:3000`
-
-### Frontend
-
-Abre una nueva terminal:
+Ejecutar:
 
 ```bash
-cd frontendDW
-npm run dev
+npm start
 ```
 
-La aplicación estará disponible en: `http://localhost:5173`
+Si la configuración es correcta, el servidor iniciará y se conectará automáticamente a MongoDB Atlas.
+
+Servidor disponible en:
+
+```text
+http://localhost:3000
+```
 
 ---
 
-## Endpoints de la API REST
+### Iniciar Frontend
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| GET | `/api/propietarios` | Listar todos los propietarios |
-| POST | `/api/propietarios` | Crear propietario |
-| PUT | `/api/propietarios/:id` | Actualizar propietario |
-| DELETE | `/api/propietarios/:id` | Eliminar propietario |
-| GET | `/api/perros` | Listar todas las mascotas |
-| POST | `/api/perros` | Registrar mascota |
-| PUT | `/api/perros/:id` | Actualizar mascota |
-| DELETE | `/api/perros/:id` | Eliminar mascota |
-| GET | `/api/historial` | Listar historial clínico |
-| POST | `/api/historial` | Crear registro clínico |
-| PUT | `/api/historial/:id` | Actualizar registro |
-| DELETE | `/api/historial/:id` | Eliminar registro |
+Abrir una nueva terminal.
+
+Ubicarse en la carpeta frontendDW:
+
+```bash
+cd frontendDW
+```
+
+Ejecutar:
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Endpoints Principales
+
+### Propietarios
+
+| Método | Ruta                  |
+| ------ | --------------------- |
+| GET    | /api/propietarios     |
+| POST   | /api/propietarios     |
+| PUT    | /api/propietarios/:id |
+| DELETE | /api/propietarios/:id |
+
+### Mascotas
+
+| Método | Ruta            |
+| ------ | --------------- |
+| GET    | /api/perros     |
+| POST   | /api/perros     |
+| PUT    | /api/perros/:id |
+| DELETE | /api/perros/:id |
+
+### Historial Clínico
+
+| Método | Ruta               |
+| ------ | ------------------ |
+| GET    | /api/historial     |
+| POST   | /api/historial     |
+| PUT    | /api/historial/:id |
+| DELETE | /api/historial/:id |
 
 ---
 
 ## Base de Datos
 
-El proyecto utiliza **MongoDB Atlas** como base de datos en la nube.
+El proyecto utiliza MongoDB Atlas para el almacenamiento de la información.
 
-### Modelos de Datos
+### Colecciones Principales
 
-**Propietario**
-```json
-{
-  "nombreCompleto": "String",
-  "dui": "String",
-  "telefono": "String",
-  "correo": "String",
-  "direccion": "String"
-}
-```
+#### Propietarios
 
-**Mascota (Perro)**
-```json
-{
-  "nombre": "String",
-  "raza": "String",
-  "edad": "Number",
-  "peso": "Number",
-  "sexo": "String",
-  "propietario": "ObjectId (ref: Propietario)"
-}
-```
+Contiene la información de los propietarios registrados.
 
-**Historial Clínico**
-```json
-{
-  "fechaConsulta": "Date",
-  "motivoConsulta": "String",
-  "diagnostico": "String",
-  "tratamiento": "String",
-  "veterinarioResponsable": "String",
-  "mascota": "ObjectId (ref: Perro)"
-}
-```
+* Nombre completo
+* DUI
+* Teléfono
+* Correo electrónico
+* Dirección
+
+#### Mascotas
+
+Contiene la información de las mascotas.
+
+* Nombre
+* Raza
+* Edad
+* Peso
+* Sexo
+* Propietario asociado
+
+#### Historial Clínico
+
+Contiene el expediente médico de cada mascota.
+
+* Fecha de consulta
+* Motivo de consulta
+* Diagnóstico
+* Tratamiento
+* Veterinario responsable
 
 ---
 
 ## Capturas del Sistema
 
-> *(Agrega aquí capturas de pantalla de las vistas principales del sistema)*
+Las capturas de pantalla del sistema pueden agregarse en esta sección para mostrar las principales funcionalidades de la aplicación.
 
-| Dashboard | Gestión de Mascotas |
-|---|---|
-| ![Dashboard](docs/screenshots/dashboard.png) | ![Mascotas](docs/screenshots/mascotas.png) |
+* Inicio de sesión
+* Dashboard principal
+* Gestión de propietarios
+* Gestión de mascotas
+* Historial clínico
+* Registro de consultas
+
+---
+
+## Aprendizajes Obtenidos
+
+Durante el desarrollo de este proyecto se fortalecieron conocimientos relacionados con:
+
+* Desarrollo Frontend con Vue.js.
+* Desarrollo Backend con Node.js y Express.
+* Diseño e implementación de APIs REST.
+* Manejo de bases de datos MongoDB Atlas.
+* Uso de Git y GitHub para control de versiones.
+* Integración de sistemas cliente-servidor.
 
 ---
 
 ## Autor
 
-**Wilfredo Villalta**  
-Estudiante de Ingeniería en Desarrollo de Software — 4.º año  
-Asignatura: Desarrollo Web (DW)  
-Correo: wilfredovillalta828@gmail.com
+**Wilfredo Villalta**
+
+Estudiante de Ingeniería en Desarrollo de Software
+
+Asignatura: Desarrollo Web (DW)
+
+Año: 2026
 
 ---
 
-## Licencia
+## Observaciones
 
-Este proyecto está bajo la Licencia MIT.  
-Uso exclusivamente académico.
-
-```
-MIT License — Copyright (c) 2026 Wilfredo Villalta
-```
+Este proyecto fue desarrollado con fines académicos para poner en práctica los conocimientos adquiridos durante la asignatura Desarrollo Web, aplicando tecnologías modernas utilizadas en el desarrollo de aplicaciones web.
