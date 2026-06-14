@@ -3,7 +3,6 @@ import { RouterView, RouterLink } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import api from '@/services/api.js'
 
-const sidebarOpen = ref(true)
 const apiOnline = ref(false)
 
 onMounted(async () => {
