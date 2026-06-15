@@ -139,7 +139,7 @@ async function eliminarP () {
 <template>
   <div>
     <!-- Encabezado de la vista -->
-    <div class="d-flex align-items-center justify-content-between mb-4">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
       <div>
         <h1 class="page-title mb-0">
           <i class="bi bi-people-fill text-success me-2"></i>Propietarios
@@ -191,33 +191,33 @@ async function eliminarP () {
           <table class="table table-hover align-middle mb-0">
             <thead>
               <tr>
-                <th class="px-4">#</th>
+                <th class="px-4 d-none d-md-table-cell">#</th>
                 <th>Nombre Completo</th>
-                <th>DUI</th>
+                <th class="d-none d-md-table-cell">DUI</th>
                 <th>Teléfono</th>
-                <th>Correo</th>
-                <th>Dirección</th>
+                <th class="d-none d-lg-table-cell">Correo</th>
+                <th class="d-none d-lg-table-cell">Dirección</th>
                 <th class="text-center px-4">Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(p, i) in propietarios" :key="p._id">
-                <td class="px-4 text-muted small">{{ i + 1 }}</td>
+                <td class="px-4 text-muted small d-none d-md-table-cell">{{ i + 1 }}</td>
                 <td class="fw-semibold">
                   <i class="bi bi-person-circle text-success me-1"></i>
                   {{ p.nombreCompleto }}
                 </td>
-                <td><code class="text-muted">{{ p.dui }}</code></td>
+                <td class="d-none d-md-table-cell"><code class="text-muted">{{ p.dui }}</code></td>
                 <td>
                   <i class="bi bi-telephone-fill text-primary me-1" style="font-size:.8rem;"></i>
                   {{ p.telefono }}
                 </td>
-                <td>
+                <td class="d-none d-lg-table-cell">
                   <a :href="`mailto:${p.correo}`" class="text-decoration-none small">
                     {{ p.correo }}
                   </a>
                 </td>
-                <td class="small text-muted">{{ p.direccion }}</td>
+                <td class="small text-muted d-none d-lg-table-cell">{{ p.direccion }}</td>
                 <td class="text-center px-4">
                   <div class="d-flex gap-2 justify-content-center">
                     <button class="btn btn-outline-primary btn-sm"
@@ -241,7 +241,7 @@ async function eliminarP () {
 
     <!-- ===== MODAL: FORMULARIO CREAR / EDITAR PROPIETARIO ===== -->
     <div class="modal fade" id="modalPropietario" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title fw-bold">

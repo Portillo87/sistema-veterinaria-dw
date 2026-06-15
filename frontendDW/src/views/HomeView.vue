@@ -48,7 +48,7 @@ onMounted(async () => {
             </div>
             <div>
               <div class="text-muted small fw-semibold">Total Mascotas</div>
-              <div class="fw-bold" style="font-size:2rem;line-height:1.1;color:#1a1a2e;">
+              <div class="fw-bold stat-number">
                 {{ cargando ? '…' : totalMascotas }}
               </div>
             </div>
@@ -69,7 +69,7 @@ onMounted(async () => {
             </div>
             <div>
               <div class="text-muted small fw-semibold">Propietarios Registrados</div>
-              <div class="fw-bold" style="font-size:2rem;line-height:1.1;color:#1a1a2e;">
+              <div class="fw-bold stat-number">
                 {{ cargando ? '…' : totalPropietarios }}
               </div>
             </div>
@@ -127,24 +127,24 @@ onMounted(async () => {
             <thead>
               <tr>
                 <th class="px-4">Nombre</th>
-                <th>Raza</th>
+                <th class="d-none d-md-table-cell">Raza</th>
                 <th>Edad</th>
                 <th>Sexo</th>
-                <th>Propietario</th>
+                <th class="d-none d-md-table-cell">Propietario</th>
                 <th class="px-4">Acción</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="m in mascotas.slice(0, 5)" :key="m._id">
                 <td class="px-4 fw-semibold">{{ m.nombre }}</td>
-                <td>{{ m.raza }}</td>
+                <td class="d-none d-md-table-cell">{{ m.raza }}</td>
                 <td>{{ m.edad }} año{{ m.edad !== 1 ? 's' : '' }}</td>
                 <td>
                   <span :class="m.sexo === 'Macho' ? 'badge-macho' : 'badge-hembra'">
                     {{ m.sexo }}
                   </span>
                 </td>
-                <td>
+                <td class="d-none d-md-table-cell">
                   <span v-if="m.propietario">{{ m.propietario.nombreCompleto }}</span>
                   <span v-else class="text-muted small">—</span>
                 </td>

@@ -207,7 +207,7 @@ async function eliminarConsulta () {
     <!-- Contenido principal de la vista -->
     <template v-else>
       <!-- Encabezado con nombre y botón de regreso -->
-      <div class="d-flex align-items-center justify-content-between mb-4">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
         <div class="d-flex align-items-center gap-3">
           <button class="btn btn-outline-secondary btn-sm"
                   title="Volver a la lista de mascotas"
@@ -369,22 +369,22 @@ async function eliminarConsulta () {
                 <tr>
                   <th class="px-4">Fecha</th>
                   <th>Motivo</th>
-                  <th>Diagnóstico</th>
-                  <th>Tratamiento</th>
-                  <th>Veterinario</th>
+                  <th class="d-none d-md-table-cell">Diagnóstico</th>
+                  <th class="d-none d-md-table-cell">Tratamiento</th>
+                  <th class="d-none d-lg-table-cell">Veterinario</th>
                   <th class="text-center px-4">Acciones</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="r in historial" :key="r._id">
-                  <td class="px-4 small fw-semibold text-nowrap">
+                  <td class="px-4 small fw-semibold">
                     <i class="bi bi-calendar2-check text-warning me-1"></i>
                     {{ formatFecha(r.fechaConsulta) }}
                   </td>
                   <td class="small">{{ r.motivoConsulta }}</td>
-                  <td class="small">{{ r.diagnostico }}</td>
-                  <td class="small">{{ r.tratamiento }}</td>
-                  <td class="small">
+                  <td class="small d-none d-md-table-cell">{{ r.diagnostico }}</td>
+                  <td class="small d-none d-md-table-cell">{{ r.tratamiento }}</td>
+                  <td class="small d-none d-lg-table-cell">
                     <i class="bi bi-person-badge text-secondary me-1"></i>
                     {{ r.veterinarioResponsable }}
                   </td>
@@ -412,7 +412,7 @@ async function eliminarConsulta () {
 
     <!-- ===== MODAL: FORMULARIO NUEVA / EDITAR CONSULTA MÉDICA ===== -->
     <div class="modal fade" id="modalHistorial" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title fw-bold">

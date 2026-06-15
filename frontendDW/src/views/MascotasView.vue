@@ -156,7 +156,7 @@ async function eliminarM () {
 <template>
   <div>
     <!-- Encabezado de la vista -->
-    <div class="d-flex align-items-center justify-content-between mb-4">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
       <div>
         <h1 class="page-title mb-0">
           <i class="bi bi-heart-fill text-danger me-2"></i>Mascotas
@@ -218,31 +218,31 @@ async function eliminarM () {
           <table class="table table-hover align-middle mb-0">
             <thead>
               <tr>
-                <th class="px-4">#</th>
+                <th class="px-4 d-none d-md-table-cell">#</th>
                 <th>Nombre</th>
-                <th>Raza</th>
+                <th class="d-none d-md-table-cell">Raza</th>
                 <th>Edad</th>
-                <th>Peso</th>
+                <th class="d-none d-md-table-cell">Peso</th>
                 <th>Sexo</th>
-                <th>Propietario</th>
+                <th class="d-none d-lg-table-cell">Propietario</th>
                 <th class="text-center px-4">Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(m, i) in mascotas" :key="m._id">
-                <td class="px-4 text-muted small">{{ i + 1 }}</td>
+                <td class="px-4 text-muted small d-none d-md-table-cell">{{ i + 1 }}</td>
                 <td class="fw-semibold">
                   <i class="bi bi-heart text-danger me-1"></i>{{ m.nombre }}
                 </td>
-                <td>{{ m.raza }}</td>
+                <td class="d-none d-md-table-cell">{{ m.raza }}</td>
                 <td>{{ m.edad }} año{{ m.edad !== 1 ? 's' : '' }}</td>
-                <td>{{ m.peso }} kg</td>
+                <td class="d-none d-md-table-cell">{{ m.peso }} kg</td>
                 <td>
                   <span :class="m.sexo === 'Macho' ? 'badge-macho' : 'badge-hembra'">
                     {{ m.sexo }}
                   </span>
                 </td>
-                <td>
+                <td class="d-none d-lg-table-cell">
                   <div v-if="m.propietario" class="d-flex align-items-center gap-1">
                     <i class="bi bi-person-circle text-success" style="font-size:.9rem;"></i>
                     <span class="small">{{ m.propietario.nombreCompleto }}</span>
@@ -277,7 +277,7 @@ async function eliminarM () {
 
     <!-- ===== MODAL: FORMULARIO CREAR / EDITAR MASCOTA ===== -->
     <div class="modal fade" id="modalMascota" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title fw-bold">
